@@ -5,5 +5,5 @@ if ActiveRecord::Base.connection.migration_context.needs_migration?
 end
 
 
-use GamesControlller
+use GamesController
 run ApplicationController
