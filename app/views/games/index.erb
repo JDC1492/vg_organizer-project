@@ -3,6 +3,6 @@
 <h1>Welcome to your Collection!</h1><br>
 <ol>
 <%@games.each do |game|%>
-<li><a href="/games/:id"><%=game.title%></a></li><br>
+<li><a href='/games/<%= game.id%>'><%=game.title%></a></li><br>
 <%end%>
 </ol>
