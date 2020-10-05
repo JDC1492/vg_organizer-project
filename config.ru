@@ -6,4 +6,5 @@ end
 
 
 use GamesController
+use UsersController
 run ApplicationController
