@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_05_133035) do
+ActiveRecord::Schema.define(version: 2020_10_05_174526) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,12 @@ ActiveRecord::Schema.define(version: 2020_10_05_133035) do
     t.string "genre"
     t.string "description"
     t.boolean "complete", default: false
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
   end
 
 end
