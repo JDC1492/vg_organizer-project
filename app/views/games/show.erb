@@ -7,3 +7,10 @@
 <p>The genre of this game is: <%= @game.genre %></p><br>
 
 <p>Have you completed it?  <%= @game.complete %></p><br>
+<br>
+<br>
+<p><a href="/games/<%=@game.id%>/edit">Make changes to this entry?</a></p>
+
+<p><a href="/games/delete">Don't own it anymore?</a></p>
+
+<p><a href="/games">Back to my index.</a></p>
