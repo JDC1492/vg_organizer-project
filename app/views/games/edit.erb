@@ -2,8 +2,8 @@
 
 <h1>Update your information!</h1>
 
-<form method="patch" action="/games/<%= @game.id %>">
-<input >
+<form method="post" action="/games/<%= @game.id %>">
+<input type="hidden" id="hidden" name="_method" value="PATCH">
 <h3>Title: </h3><input type="text" name="title">
 <h3>Console: </h3><input type="text" name="console">
 <h3>Genre: </h3><input type="text" name="genre">
