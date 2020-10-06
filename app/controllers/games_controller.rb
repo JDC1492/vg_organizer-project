@@ -35,14 +35,14 @@ class GamesController < ApplicationController
         params.delete("_method")
         if @game.update(params)
             redirect "/games/#{@game.id}"
-    #     else
-    #         redirect "/games/new"
+        else
+            redirect "/games/new"
         end
     end
 
-    delete 'games/:id' do
+    delete '/games/:id' do
         @game = Game.find_by_id(params[:id])
-        @post.destroy
+        @game.destroy
         redirect "/games"
     end
 
