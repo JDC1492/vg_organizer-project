@@ -16,9 +16,9 @@ class GamesController < ApplicationController
     end
     
     post '/games' do
-        binding.pry
+        # binding.pry
         new_game=Game.new(params)
-        if new_game.save
+        if new_game.save        #dependent on validations
             redirect "games/#{new_game.id}"
         else
             redirect 'games/new'
@@ -31,12 +31,19 @@ class GamesController < ApplicationController
     end
 
     patch '/games/:id' do
-        post = Post.new(params)
-        if post.save
-            redirect "/games/#{post.id}"
-        else
-            redirect "/games/new"
+        @game = Game.find_by_id(params[:id])
+        params.delete("_method")
+        if @game.update(params)
+            redirect "/games/#{@game.id}"
+    #     else
+    #         redirect "/games/new"
         end
+    end
+
+    delete 'games/:id' do
+        @game = Game.find_by_id(params[:id])
+        @post.destroy
+        redirect "/games"
     end
 
 end

@@ -3,8 +3,8 @@
 <h1>Update your information!</h1>
 
 <form method="POST" action="/games/<%= @game.id %>">
-<input type="hidden" id="hidden" name="_method" value="PATCH">
-<h3>Title: </h3><input type="text" name="title">
+<input type="hidden" name="_method" value="PATCH">
+<h3>Title: </h3><input  type="text" name="title">
 <h3>Console: </h3><input type="text" name="console">
 <h3>Genre: </h3><input type="text" name="genre">
 <h3>What's it about? </h3><input type="text" name="description">
