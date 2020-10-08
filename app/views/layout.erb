@@ -16,8 +16,10 @@
   <body>
     <div class="wrapper">
 
-        <%= yield %>
-
+        <%= yield %><br>
+      <%if logged_in?%>
+        <p><a href='/logout'>Logout</a></p>
+      <%end%>
       <footer class="branding">
         <small>&copy; 2020 <strong>VgOrganizer</strong></small>
       </footer>

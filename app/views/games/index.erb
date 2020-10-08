@@ -1,13 +1,11 @@
 <title>Index</title>
 
-<h1>Welcome to your Collection!</h1><br>
-<ol>
+<h1>Welcome to your Collection, <%= @user.username %>!</h1><br>
 <%@games.each do |game|%>
-<li><a href='/games/<%= game.id%>'><%=game.title%></a></li><br>
+<a href='/games/<%= game.id%>'><%=game.title%></a><br>
 <%end%>
-</ol><br>
 <br>
 <br>
-<br>
+
 
 <p><a href="/games/new">Did you pick up anything new today?</a></p>

@@ -2,7 +2,7 @@ class GamesController < ApplicationController
 
     get '/games' do 
         if logged_in?
-        @games = Game.all
+        @games = current_user.games
         erb :'games/index'
         else
             redirect "/login"
@@ -20,12 +20,15 @@ class GamesController < ApplicationController
     end
     
     post '/games' do
-        # binding.pry
+       if logged_in?
+        @user = current_user
         new_game=Game.new(params)
-        if new_game.save        #dependent on validations
+        if new_game.save 
+            @user.games << new_game    #dependent on validations
             redirect "games/#{new_game.id}"
         else
             redirect 'games/new'
+        end
         end
     end
 
@@ -35,14 +38,17 @@ class GamesController < ApplicationController
     end
 
     patch '/games/:id' do
+        if logged_in?
         @game = Game.find_by_id(params[:id])
         params.delete("_method")
         if @game.update(params)
-            redirect "/games/#{@game.id}"
-        else
-            redirect "/games/new"
+           @user = current_user
+           @user.games << @game     
         end
+        redirect "/games/#{@game.id}"
     end
+    end
+
 
     delete '/games/:id' do
         @game = Game.find_by_id(params[:id])
