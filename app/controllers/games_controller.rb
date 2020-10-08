@@ -23,8 +23,8 @@ class GamesController < ApplicationController
        if logged_in?
         @user = current_user
         new_game=Game.new(params)
-        if new_game.save 
-            @user.games << new_game    #dependent on validations
+        if new_game.save #dependent on validations
+            @user.games << new_game    
             redirect "games/#{new_game.id}"
         else
             redirect 'games/new'

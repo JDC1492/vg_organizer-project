@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     end
 
     get '/signup' do
-        @user = Game.new(params)
+        @user = User.new(params)
         erb :'/sessions/sign_up'
     end
 
@@ -16,15 +16,20 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect "/games"
         else  
-            redirect "/"
+            redirect "/login"
         end
     end
 
     post '/signup' do 
-        redirect "/login"
-
+        user = User.new(params)
+           if user.save && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            binding.pry
+            redirect "/games"
+        else
+        redirect '/signup'
     end
-
+end
 
 
     get '/logout' do 
