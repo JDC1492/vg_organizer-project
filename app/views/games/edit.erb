@@ -8,6 +8,11 @@
 <h3>Console: </h3><input type="text" name="console" value="<%= @game.console %>">
 <h3>Genre: </h3><input type="text" name="genre" value="<%= @game.genre %>">
 <h3>What's it about? </h3><input type="text" name="description" value="<%= @game.description %>">
-<h3>Have you finished? </h3><input type="text" name="complete" value="<%= @game.complete %>">
+<h3>Have you finished? </h3>
+    <input type="radio" id="true" name="complete" value="true">
+    <label for="true">I have</label><br>
+    <input type="radio" id="false" name="complete" value="false">
+    <label for="false">I have not</label><br>
+    <br>
 <input type="submit" value="Submit">
 </form>

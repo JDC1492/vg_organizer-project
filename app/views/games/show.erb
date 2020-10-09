@@ -1,4 +1,4 @@
-<h1><%= @game.title %></h1>
+<h1><u><%= @game.title %></u></h1>
 
 <h3>Game Description: <%= @game.description %></h3><br>
 
@@ -6,7 +6,7 @@
 
 <p>The genre of this game is: <%= @game.genre %></p><br>
 
-<p>Have you completed it?  <%= @game.complete %></p><br>
+<p>Complete:   <%= @game.complete %></p><br>
 <br>
 <br>
 <p><a href="/games/<%=@game.id%>/edit">Make changes to this entry?</a></p><br>
